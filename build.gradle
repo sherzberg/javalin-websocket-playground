@@ -1,0 +1,27 @@
+group 'org.sherzberg'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.javalin:javalin:1.0.0'
+    compile group: 'org.eclipse.jetty.websocket', name: 'websocket-server', version: '9.4.7.v20170914'
+
+    compile 'org.slf4j:slf4j-simple:1.7.13'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.sherzberg.javalin.Application'
+        )
+    }
+}
